@@ -1,11 +1,12 @@
 version: "3"
 services:
   tad:
-    image: postgres:9.6
+    image: postgres:latest
     container_name: "postgres"
     environment:
       - POSTGRES_DB=tadpgweb
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - TZ=GMT
     volumes:
       - "./data/postgres:/var/lib/postgresql/data"
@@ -13,3 +14,6 @@ services:
       - 5432:5432
 
 #https://jtemporal.com/brincando-com-postgresql/
+
+#caminha relativo para usar no windows /tmp/database:/var/lib/postgresql/data -e
+#caminho relativo para usar no linux ./data/postgres:/var/lib/postgresql/data
